@@ -9,25 +9,24 @@ quicksort (x:xs) = quicksort smallerequal ++ [x] ++ quicksort greater
 
 dpquicksort :: (Ord a) => [a] -> [a]
 dpquicksort [] = []
-dpquicksort (x:y) = quicksort (x:y)
 dpquicksort (x:y:xs) = 
     dpquicksort smaller ++ [a] ++ dpquicksort xgteqylteq ++ [b] ++ dpquicksort greater
     where a = min x y
           b = max x y
-          smaller = [e | e <- xs, e < x]
-          xgteqylteq = [e | e <- xs, e >= x, e <= y]
-          greater = [e | e <- xs, e > y]
+          smaller = [e | e <- xs, e < a]
+          xgteqylteq = [e | e <- xs, e >= a, e <= b]
+          greater = [e | e <- xs, e > b]
+dpquicksort (x:y) = quicksort (x:y)
 
 randomlist :: Int -> StdGen -> [Int]
 randomlist n = take n . unfoldr (Just . random) 
 
 main = do
     seed <- newStdGen 
-    
     let list = randomlist 1000000 seed
     let something = map (`mod` 1000000) list
-    let sorted = dpquicksort something
+    let sorted = quicksort something
     print(sorted)
-   
+    
     
 

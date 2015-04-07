@@ -1,0 +1,45 @@
+	Mon Apr  6 21:38 2015 Time and Allocation Profiling Report  (Final)
+
+	   dpquicksort +RTS -p -RTS
+
+	total time  =        2.85 secs   (2847 ticks @ 1000 us, 1 processor)
+	total alloc = 4,291,265,536 bytes  (excludes profiling overheads)
+
+COST CENTRE            MODULE  %time %alloc
+
+randomlist             Main     30.8   49.0
+dpquicksort.xgteqylteq Main     25.3    7.1
+dpquicksort.greater    Main     18.0    6.1
+dpquicksort.smaller    Main      9.8    6.6
+main                   Main      6.6    8.0
+dpquicksort            Main      6.3   19.3
+main.something         Main      1.5    2.4
+quicksort              Main      0.7    1.2
+
+
+                                                                       individual     inherited
+COST CENTRE                  MODULE                  no.     entries  %time %alloc   %time %alloc
+
+MAIN                         MAIN                     51           0    0.0    0.0   100.0  100.0
+ CAF                         Main                    101           0    0.0    0.0   100.0  100.0
+  main                       Main                    102           1    6.6    8.0   100.0  100.0
+   main.list                 Main                    106           1    0.0    0.0    30.8   49.0
+    randomlist               Main                    107           1   30.8   49.0    30.8   49.0
+   main.something            Main                    105           1    1.5    2.4     1.5    2.4
+   main.sorted               Main                    103           1    0.0    0.0    61.1   40.6
+    dpquicksort              Main                    104     1225288    6.3   19.3    61.1   40.6
+     dpquicksort.greater     Main                    115      408429   18.0    6.1    18.0    6.1
+     quicksort               Main                    112      549426    0.7    1.2     0.8    1.4
+      quicksort.greater      Main                    114      183142    0.0    0.1     0.0    0.1
+      quicksort.smallerequal Main                    113      183142    0.1    0.1     0.1    0.1
+     dpquicksort.b           Main                    111      408429    0.6    0.0     0.6    0.0
+     dpquicksort.xgteqylteq  Main                    110      408429   25.3    7.1    25.3    7.1
+     dpquicksort.a           Main                    109      408429    0.3    0.0     0.3    0.0
+     dpquicksort.smaller     Main                    108      408429    9.8    6.6     9.8    6.6
+ CAF                         System.Random           100           0    0.0    0.0     0.0    0.0
+ CAF                         GHC.IO.Encoding          92           0    0.0    0.0     0.0    0.0
+ CAF                         GHC.IO.Handle.FD         90           0    0.0    0.0     0.0    0.0
+ CAF                         GHC.Conc.Signal          83           0    0.0    0.0     0.0    0.0
+ CAF                         GHC.IO.Encoding.Iconv    78           0    0.0    0.0     0.0    0.0
+ CAF                         GHC.IO.Handle.Text       70           0    0.0    0.0     0.0    0.0
+ CAF                         GHC.Integer.Type         58           0    0.0    0.0     0.0    0.0

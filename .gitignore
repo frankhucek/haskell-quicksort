@@ -1,3 +1,10 @@
 quicksort.hi
 quicksort.o
 quicksort
+
+dpquicksort.hi
+dpquicksort.o
+dpquicksort
+
+quicksortc.o
+quicksortc

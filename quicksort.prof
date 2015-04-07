@@ -1,38 +1,37 @@
-	Mon Apr  6 17:59 2015 Time and Allocation Profiling Report  (Final)
+	Mon Apr  6 21:40 2015 Time and Allocation Profiling Report  (Final)
 
 	   quicksort +RTS -p -RTS
 
-	total time  =        2.65 secs   (2646 ticks @ 1000 us, 1 processor)
-	total alloc = 4,921,990,144 bytes  (excludes profiling overheads)
+	total time  =        2.82 secs   (2823 ticks @ 1000 us, 1 processor)
+	total alloc = 4,949,310,392 bytes  (excludes profiling overheads)
 
 COST CENTRE            MODULE  %time %alloc
 
-quicksort.greater      Main     35.1   13.8
-randomlist             Main     33.8   42.7
-quicksort.smallerequal Main     15.6   14.6
-quicksort              Main      7.8   19.8
-main                   Main      6.3    7.0
-main.something         Main      1.3    2.1
+quicksort.greater      Main     34.9   14.5
+randomlist             Main     33.6   42.5
+quicksort.smallerequal Main     17.4   14.4
+main                   Main      6.7    6.9
+quicksort              Main      6.6   19.6
+main.something         Main      0.8    2.1
 
 
-                                                                       individual     inherited
-COST CENTRE                  MODULE                  no.     entries  %time %alloc   %time %alloc
+                                                                      individual     inherited
+COST CENTRE                 MODULE                  no.     entries  %time %alloc   %time %alloc
 
-MAIN                         MAIN                     51           0    0.0    0.0   100.0  100.0
- CAF                         Main                    101           0    0.0    0.0   100.0  100.0
-  main                       Main                    102           1    6.3    7.0   100.0  100.0
-   main.list                 Main                    106           1    0.0    0.0    33.8   42.7
-    randomlist               Main                    107           1   33.8   42.7    33.8   42.7
-   main.something            Main                    105           1    1.3    2.1     1.3    2.1
-   main.sorted               Main                    103           1    0.0    0.0    58.5   48.2
-    dpquicksort              Main                    104           1    0.0    0.0    58.5   48.2
-     quicksort               Main                    108     2000001    7.8   19.8    58.5   48.2
-      quicksort.greater      Main                    110     1000000   35.1   13.8    35.1   13.8
-      quicksort.smallerequal Main                    109     1000000   15.6   14.6    15.6   14.6
- CAF                         System.Random           100           0    0.0    0.0     0.0    0.0
- CAF                         GHC.IO.Encoding          92           0    0.0    0.0     0.0    0.0
- CAF                         GHC.IO.Handle.FD         90           0    0.0    0.0     0.0    0.0
- CAF                         GHC.Conc.Signal          83           0    0.0    0.0     0.0    0.0
- CAF                         GHC.IO.Encoding.Iconv    78           0    0.0    0.0     0.0    0.0
- CAF                         GHC.IO.Handle.Text       70           0    0.0    0.0     0.0    0.0
- CAF                         GHC.Integer.Type         58           0    0.0    0.0     0.0    0.0
+MAIN                        MAIN                     51           0    0.0    0.0   100.0  100.0
+ CAF                        Main                    101           0    0.0    0.0   100.0  100.0
+  main                      Main                    102           1    6.7    6.9   100.0  100.0
+   main.list                Main                    106           1    0.0    0.0    33.6   42.5
+    randomlist              Main                    107           1   33.6   42.5    33.6   42.5
+   main.something           Main                    105           1    0.8    2.1     0.8    2.1
+   main.sorted              Main                    103           1    0.0    0.0    58.9   48.5
+    quicksort               Main                    104     2000001    6.6   19.6    58.9   48.5
+     quicksort.greater      Main                    109     1000000   34.9   14.5    34.9   14.5
+     quicksort.smallerequal Main                    108     1000000   17.4   14.4    17.4   14.4
+ CAF                        System.Random           100           0    0.0    0.0     0.0    0.0
+ CAF                        GHC.IO.Encoding          92           0    0.0    0.0     0.0    0.0
+ CAF                        GHC.IO.Handle.FD         90           0    0.0    0.0     0.0    0.0
+ CAF                        GHC.Conc.Signal          83           0    0.0    0.0     0.0    0.0
+ CAF                        GHC.IO.Encoding.Iconv    78           0    0.0    0.0     0.0    0.0
+ CAF                        GHC.IO.Handle.Text       70           0    0.0    0.0     0.0    0.0
+ CAF                        GHC.Integer.Type         58           0    0.0    0.0     0.0    0.0
