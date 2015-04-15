@@ -3,6 +3,11 @@ QuickSort Algorithm
 C compared to Haskell.
 Haskell profiling in .prof files.
 
+Important to note: the haskell default list is a linked list,
+whereas I use an array in C which makes C much faster.
+I will soon implement a true array using the Haskell IO monad
+and compare run times then.
+
 Also, It is very interesting to compare my HeapSort written in C
 and my QuickSort written in C. QuickSort is significantly faster.
 
