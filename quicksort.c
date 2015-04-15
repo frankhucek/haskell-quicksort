@@ -4,6 +4,16 @@
 /* Sorts 536870911 random items in 104.707554 seconds */
 /* Sorts 1000000 random items in .140216 seconds */
 
+/*
+    Works by picking a random element in the array
+    swapping it with the far left element,
+    performing the partitioning procedure, and
+    at the end, place the first element in it's proper place.
+
+    This is currently the partition function that I have gotten 
+    to run the fastest on average on any array.
+*/
+
 int partition(int **a, int left, int right)
 {
     int pivot, i, j, temp;
