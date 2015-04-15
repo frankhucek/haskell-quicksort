@@ -8,3 +8,4 @@ dpquicksort
 
 quicksortc.o
 quicksortc
+qsortalgs.c
