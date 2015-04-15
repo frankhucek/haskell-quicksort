@@ -1,34 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-/* Sorts 536870911 random items in 100.761506 seconds */
-/* Sorts 1000000 random items in .130732 seconds */
+/* Sorts 536870911 random items in 104.707554 seconds */
+/* Sorts 1000000 random items in .140216 seconds */
 
 int partition(int **a, int left, int right)
 {
-    int temp;
-    int pivot = (*a)[(rand() % (right - left)) + left];
-    int i = left - 1;
-    int j = right + 1;
+    int pivot, i, j, temp;
+    int randm = (rand() % (right - left)) + left;
+    
+    i = left;
+    j = right + 1;
 
+    temp = (*a)[randm];
+    (*a)[randm] = (*a)[left];
+    (*a)[left] = temp;
+
+    pivot = (*a)[left];
+    
     while(1)
     {
         do
         {
-            ++i;
-        }while((*a)[i] <= pivot);
+            i++;
+        }while((*a)[i] <= pivot && i <= right);
         do
         {
-            --j;
+            j--;
         }while((*a)[j] > pivot);
-        if(i < j)
-        {
-            temp = (*a)[i];
-            (*a)[i] = (*a)[j];
-            (*a)[j] = temp;
-        }
-        else break;
+
+        if(i >= j)
+            break;
+        temp = (*a)[i];
+        (*a)[i] = (*a)[j];
+        (*a)[j] = temp;
+        
     }
+    
+    temp = (*a)[left];
+    (*a)[left] = (*a)[j];
+    (*a)[j] = temp;
     return j;
 }
 
@@ -62,9 +73,9 @@ int main(int argv, char* args[])
 
     //for(j = 0; j < arg; j++)
     //    a[j] = j;
-    //for(j = 0; j < arg; j++)
-    //    printf("%d\n",a[j]);
-    //printf("\n");
+    for(j = 0; j < arg; j++)
+        printf("%d\n",a[j]);
+    printf("\n");
     
     clock_t begin, end;
     double time_spent;
@@ -76,10 +87,10 @@ int main(int argv, char* args[])
     time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 
     int i;
-    /*for(i = 0; i < arg; i++)
+    for(i = 0; i < arg; i++)
     {
         printf("%d\n", a[i]);
-    }*/
+    }
     printf("sorted %d elements in %f seconds\n", arg, time_spent);
     return 0;
 }
