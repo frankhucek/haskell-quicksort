@@ -33,7 +33,7 @@ int partition(int **a, int left, int right)
         do
         {
             i++;
-        }while((*a)[i] <= pivot && i <= right);
+        }while((*a)[i] <= pivot && i < right);
         do
         {
             j--;
