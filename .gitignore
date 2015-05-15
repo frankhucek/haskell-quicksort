@@ -10,3 +10,7 @@ quicksortc.o
 quicksortc
 qsortalgs.c
 qsortalgs
+
+dist/*
+.cabal-sandbox/*
+cabal.sandbox.config
