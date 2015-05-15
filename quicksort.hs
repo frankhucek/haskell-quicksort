@@ -1,5 +1,5 @@
-import System.Random 
-import Data.List  
+import System.Random
+import Data.List
 
 quicksort :: (Ord a) => [a] -> [a]
 quicksort [] = []
@@ -9,7 +9,7 @@ quicksort (x:xs) = quicksort smallerequal ++ [x] ++ quicksort greater
 
 dpquicksort :: (Ord a) => [a] -> [a]
 dpquicksort [] = []
-dpquicksort (x:y:xs) = 
+dpquicksort (x:y:xs) =
     dpquicksort smaller ++ [a] ++ dpquicksort xgteqylteq ++ [b] ++ dpquicksort greater
     where a = min x y
           b = max x y
@@ -19,14 +19,11 @@ dpquicksort (x:y:xs) =
 dpquicksort (x:y) = quicksort (x:y)
 
 randomlist :: Int -> StdGen -> [Int]
-randomlist n = take n . unfoldr (Just . random) 
+randomlist n = take n . unfoldr (Just . random)
 
 main = do
-    seed <- newStdGen 
+    seed <- newStdGen
     let list = randomlist 1000000 seed
     let something = map (`mod` 1000000) list
     let sorted = quicksort something
-    print(sorted)
-    
-    
-
+    print $ (sorted) `seq` "done"
