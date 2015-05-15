@@ -15,9 +15,9 @@ qsort = U.modify go
                   go $ M.drop dups rWithDups
 
 main :: IO ()
-main = do l <- sequence $ map (const $ getStdRandom(randomR (1,1000000))) [1..1000000 :: Int] :: IO [Int]
+main = do l <- mapM (const $ getStdRandom(randomR (1,1000000))) [1..1000000 :: Int] :: IO [Int]
           s <- getCPUTime
           let v = U.fromList l
-          print $ (qsort v) `seq` "done"
+          print $ qsort v `seq` "done"
           e <- getCPUTime
           putStrLn $ show (fromIntegral (e - s) / 1000000000000) ++ " seconds"
