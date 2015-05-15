@@ -8,8 +8,10 @@ qsort = U.modify go
   where go xs | M.length xs < 2 = return ()
               | otherwise = do
                   n <- M.read xs (M.length xs `div` 2)
+                       -- arbitrarily pick partition as middle element
                   p <- M.unstablePartition (< n) xs
                        -- split list in place about n, return split index
+                       -- uses same algorithm as qsort_miles.c
                   let (l, rWithDups) = M.splitAt p xs
                        -- conceptually split list
                   ns <- M.unstablePartition (== n) rWithDups
